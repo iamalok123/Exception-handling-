@@ -1,0 +1,32 @@
+public class ExceptionHandler {
+
+    public void divide(int numerator, int denominator) {
+        try {
+            int result = numerator / denominator;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero is not allowed.");
+        }
+    }
+
+    
+    public void accessArrayElement(int[] array, int index) {
+        try {
+            int element = array[index];
+            System.out.println("Array element at index " + index + ": " + element);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Array index out of bounds.");
+        }
+    }
+
+    public static void main(String[] args) {
+        ExceptionHandler handler = new ExceptionHandler();
+
+        
+        handler.divide(10, 0); // This will trigger the ArithmeticException
+
+     
+        int[] array = {1, 2, 3};
+        handler.accessArrayElement(array, 5); // This will trigger the ArrayIndexOutOfBoundsException
+    }
+}
